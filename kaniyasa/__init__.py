@@ -1,2 +1,2 @@
 
-from .kaniyasa import Kaniyasa, RabbitCon
+from .kaniyasa import Kaniyasa, RabbitCon, start_listening

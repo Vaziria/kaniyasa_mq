@@ -88,10 +88,6 @@ class IklanConsumer(Consumer, metaclass=abc.ABCMeta):
 	def update_ad_account(self, ch, method, properties, msg):
 		pass
 
-	@abc.abstractmethod
-	def update_campaign(self, ch, method, properties, msg):
-		pass
-
 	
 
 
