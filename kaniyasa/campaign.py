@@ -27,6 +27,7 @@ class AddAcount(BaseModel):
 	
 	id: str
 	name: str
+	owner_id: int
 	created: datetime
 
 	
@@ -47,6 +48,7 @@ class Campaign(BaseModel):
 	amount: int
 	owner_id: int
 	created: datetime
+	add_account: AddAcount
 
 
 class IklanProducer:

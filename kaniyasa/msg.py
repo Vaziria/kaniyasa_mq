@@ -1,12 +1,13 @@
 import pickle
 from dataclasses import dataclass, asdict
+from typing import Union
 
 from .base_model import BaseModel
 
 @dataclass
 class Msg:
 	action: str
-	data: BaseModel
+	data: Union[BaseModel, dict]
 
 	def serialize(self):
 		return pickle.dumps(self)

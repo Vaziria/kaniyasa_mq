@@ -1,5 +1,6 @@
 import json
 import pika
+from .msg import Msg
 
 
 class RabbitCon:
@@ -25,6 +26,12 @@ class RabbitCon:
 			options['virtual_host'] = app.config.get('rabbitmq_vhost')
 
 		self.connection = pika.BlockingConnection(pika.ConnectionParameters(uri, **options))
+
+	def send(self, routing, action, data, *arg, **kwarg):
+		
+		msg = Msg(action, data)
+		self.con.send(exchange = '', routing_key = routing, body = msg.serialize(),  *arg, **kwarg)
+
 
 	def close(self):
 		if self.connection:
